@@ -27,15 +27,8 @@ const Left = (props) => {
     useEffect(() => {
         getRepository(login).then((response) => {
            return getRepositoryInfo(login, response[0].name).then((data) => {
-               const languageFrequencies = data
-                   .map(response => response.language || 'Unknown')
-                   .reduce((accumulator, language) => {
-                       accumulator[language] = (accumulator[language] || 0) + 1;
-                       return accumulator;
-                   }, {});
-               const totalRepositories = data.length;
-               const sortedLanguages = Object.entries(languageFrequencies)
-                   .map(([language, count]) => [language, count / totalRepositories * 100])
+               const sortedLanguages = Object.entries(data)
+                   .map(([language, count]) => [language, (count * 100).toFixed(2) + '%'])
                    .sort((a, b) => b[1] - a[1]);
                setLanguages(sortedLanguages);
            })

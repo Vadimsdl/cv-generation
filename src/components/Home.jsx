@@ -11,7 +11,7 @@ const Home = () => {
     const [username, setUsername] = useState("");
 
     const handellClick = () => {
-        navigate(`/${username}`);
+        navigate(`/cv-generation/${username}`);
     }
 
     return (

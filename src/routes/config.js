@@ -7,7 +7,7 @@ import {checkStorage, setItem} from "../action/localStorage";
 
 export const router = createBrowserRouter([
     {
-        path: "/",
+        path: "/cv-generation/",
         loader: () => {
             const cache = checkStorage("all");
             return cache ? cache : getAllUsers().then((data) => setItem("all", data));
@@ -17,7 +17,7 @@ export const router = createBrowserRouter([
             title="Submission Failed"
             subTitle="Please check and modify the information before resubmitting."
             extra={[
-                <Button href="/" type="primary" key="console">
+                <Button href="/cv-generation/" type="primary" key="console">
                     Go Home
                 </Button>
             ]}
@@ -25,7 +25,7 @@ export const router = createBrowserRouter([
         element: <Home />,
     },
     {
-        path: "/:username",
+        path: "/cv-generation/:username",
         loader: ({ params }) => {
             const cache = checkStorage(params.username);
             return cache ? cache : getCurrentUser(params.username).then(data => setItem(params.username, data));
@@ -35,7 +35,7 @@ export const router = createBrowserRouter([
             title="Submission Failed"
             subTitle="Please check and modify the information before resubmitting."
             extra={[
-                <Button href="/" type="primary" key="console">
+                <Button href="/cv-generation/" type="primary" key="console">
                     Go Home
                 </Button>
             ]}

@@ -18,5 +18,5 @@ export const getRepository = (username) => {
 }
 
 export const getRepositoryInfo = (username, repositoryName) => {
-    return fetch(`https://api.github.com/repos/${username}/${repositoryName}`).then((data) => handelError(data));
+    return fetch(`https://api.github.com/repos/${username}/${repositoryName}/languages`).then((data) => handelError(data));
 }
