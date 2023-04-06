@@ -14,7 +14,6 @@ export function checkStorage(key) {
             localStorage.removeItem(key);
             return null;
         }
-
     }
 
     return null;

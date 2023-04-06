@@ -80,7 +80,6 @@ const Left = (props) => {
                         <Paragraph className={s.font} strong>- {language}: <Link className={s.font} href={blog}>{percentage}</Link></Paragraph>
                     </Col>
                 ))}
-
             </Row>
         </>
     );
