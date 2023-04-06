@@ -12,3 +12,11 @@ export const getAllUsers = () => {
 export const getCurrentUser = (username) => {
     return fetch(`https://api.github.com/users/${username}`).then((data) => handelError(data));
 }
+
+export const getRepository = (username) => {
+    return fetch(`https://api.github.com/users/${username}/repos`).then((data) => handelError(data));
+}
+
+export const getRepositoryInfo = (username, repositoryName) => {
+    return fetch(`https://api.github.com/repos/${username}/${repositoryName}`).then((data) => handelError(data));
+}
