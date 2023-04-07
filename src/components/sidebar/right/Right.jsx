@@ -27,8 +27,10 @@ const Left = (props) => {
     useEffect(() => {
         getRepository(login).then((response) => {
            return getRepositoryInfo(login, response[0].name).then((data) => {
-               const sortedLanguages = Object.entries(data)
-                   .map(([language, count]) => [language, (count * 100).toFixed(2) + '%'])
+               const langs = Object.entries(data);
+               const equal = (langs.reduce((accumulated, count) => accumulated + count[1], 0) / 100);
+               const sortedLanguages = langs
+                   .map(([language, count]) => [language, count / equal ])
                    .sort((a, b) => b[1] - a[1]);
                setLanguages(sortedLanguages);
            })
