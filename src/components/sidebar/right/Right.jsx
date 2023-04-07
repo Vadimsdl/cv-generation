@@ -72,7 +72,7 @@ const Left = (props) => {
             <Row>
                 {languages.map(([language, percentage]) => (
                     <Col key={`${language}=${percentage}`}>
-                        <Paragraph className={s.font} strong>- {language}: <Text className={s.font}>{percentage}%</Text></Paragraph>
+                        <Paragraph className={s.font} strong>- {language}: <Text className={s.font}>{percentag.toFixed(2)}%</Text></Paragraph>
                     </Col>
                 ))}
             </Row>
